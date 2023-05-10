@@ -7,7 +7,7 @@ jobs:
     build:
         docker:
             # specify the version you desire here
-            - image: circleci/openjdk:11-browsers-legacy
+            - image: cimg/openjdk:17.0-browsers
 
             # Specify service dependencies here if necessary
             # CircleCI maintains a library of pre-built images
@@ -37,7 +37,7 @@ jobs:
                       - ~/.m2
                   key: v1-dependencies-{{ checksum "pom.xml" }}
 
-            - run: git config user.email "john@springframework.guru"
+            - run: git config user.email "jan.kolthoff@googlemail.com"
             - run: git config user.name "Via CircleCI Build"
             # run tests!
             - run: mvn --batch-mode release:prepare release:perform -s .circleci/settings.xml
